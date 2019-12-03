@@ -74,13 +74,31 @@ function routes($stateProvider, $urlRouterProvider) {
             controller: 'ratingsController'
         },
         {
-            name: 'contacts',
-            label: 'Contcts',
+            name: 'contactus',
+            label: 'Contact Us',
             auth: false,
             restricted:false,
-            url: '/contacts',
-            templateUrl: 'app/contacts/index.html',
-            controller: 'contactsController'
+            url: '/contactus',
+            templateUrl: 'app/contactus/index.html',
+            controller: 'contactusController'
+        },
+        {
+            name: 'calc',
+            label: 'Profit Calculator',
+            auth: false,
+            restricted:false,
+            url: '/calc',
+            templateUrl: 'app/calc/index.html',
+            controller: 'calcController'
+        },
+        {
+            name: 'start',
+            label: 'Get Started',
+            auth: false,
+            restricted:false,
+            url: '/start',
+            templateUrl: 'app/start/index.html',
+            controller: 'startController'
         },
     ]
 

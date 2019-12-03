@@ -20,16 +20,16 @@
                    </ul>
                     <!-- Header - contact info area-->
                     <ul class="contact_details hidden-xs">
-                        <li class="slogan"><i class="fas fa-angle-right"></i> <a href="index40e9.html?a=cust&amp;page=get_started">Get Started</a></li>
-        <li class=slogan><i class="fas fa-calculator"></i> <a href="index3dee.html?a=cust&amp;page=calc">Profit Calculator</a></li>
+                        <li class="slogan"><i class="fas fa-angle-right"></i> <a ui-sref="start">Get Started</a></li>
+        <li class=slogan><i class="fas fa-calculator"></i> <a ui-sref="calc">Profit Calculator</a></li>
         <li class="phone">
                             <i class="icon-phone"></i> <a>+442080897218</a>
                         </li>
                         <li class="mail">
-                            <a href="https://vm.providesupport.com/1cbhshcviz26f1n3ffgilcxakg" onclick="window.open(this.href, '', 'scrollbars=1,height='+Math.min(700, screen.availHeight)+',width='+Math.min(500, screen.availWidth)); return false;" target="_blank"><i class="icon-chat"></i> Live chat</a>
+                            <a ui-sref="https://vm.providesupport.com/1cbhshcviz26f1n3ffgilcxakg" onclick="window.open(this.href, '', 'scrollbars=1,height='+Math.min(700, screen.availHeight)+',width='+Math.min(500, screen.availWidth)); return false;" target="_blank"><i class="icon-chat"></i> Live chat</a>
                         </li>
         <li class="mail">
-                            <a href="indexf106.html?a=representatives" target="_blank" style="color:#fff;font-weight:bold"><i class="icon-users"></i> Representatives</a>
+                            <a ui-sref="indexf106.html?a=representatives" target="_blank" style="color:#fff;font-weight:bold"><i class="icon-users"></i> Representatives</a>
                         </li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="column one">
                     <div class="top_bar_left clearfix">
         <div class="logo">
-                            <a id="logo" href="indexd41d.html?" title="BSFinance Limited"><img class="scale-with-grid" src="images/logo_ny.png" alt="BSFinance Limited" />
+                            <a id="logo" ui-sref="indexd41d.html?" title="BSFinance Limited"><img class="scale-with-grid" src="images/logo_ny.png" alt="BSFinance Limited" />
                             </a>
                         </div>
                         <div class="menu_wrapper">
@@ -52,7 +52,7 @@
                                       <li><a ui-sref="signup"><span>Sign Up</span></a></li>
                                       <li><a ui-sref="signin"><span>Sign In</span></a></li>
                                     <li class="hidden-lg">
-                                        <a ui-sref="profitcalculator"><span>Profit calculator</span></a>
+                                        <a ui-sref="calc"><span>Profit calculator</span></a>
                                     </li>
                                     <li>
                                         <a ui-sref="faq"><span>FAQ</span></a>
@@ -64,45 +64,45 @@
                                         <a ui-sref="news"><span>News</span></a>
                                     </li>
                                     <li>
-                                        <a ui-sref="ratings""><span>Ratings</span></a>
+                                        <a ui-sref="ratings"><span>Ratings</span></a>
                                     </li>
-              <li class="hidden-lg">
-                                        <a href="https://vm.providesupport.com/1cbhshcviz26f1n3ffgilcxakg" onclick="window.open(this.href, '', 'scrollbars=1,height='+Math.min(700, screen.availHeight)+',width='+Math.min(500, screen.availWidth)); return false;" target="_blank"><span>Online chat</span></a>
-                                    </li>
-              <li class="hidden-lg">
-                <a href="indexf106.html?a=representatives"><span>Representatives</span></a>
-                                    </li>
-              <li>
-                                        <a ui-sref="contactus"><span>Contact Us</span></a>
-                                    </li>
-              <li class="visible-xs ng-hide" style="padding:5px">
-                                        Change language:
-                <p style="padding-left:5px">
-                  <a href="index67f0.html?language=ru"><img src="images/flags/ru.png"> Русский</a>
-                                        <a href="index9d3b.html?language=es"><img src="images/flags/es.png"> Español</a>
-                  <a href="index8888.html?language=fr"><img src="images/flags/fr.png"> Français</a>
-                  <a href="index2b61.html?language=ch"><img src="images/flags/ch.png"> 中文</a>
-                  <a href="index5a22.html?language=de"><img src="images/flags/de.png"> Deutsch</a>
-                </p>
-                                    </li>
-                                </ul>
+                          <li class="hidden-lg">
+                                <a ui-sref="https://vm.providesupport.com/1cbhshcviz26f1n3ffgilcxakg" onclick="window.open(this.href, '', 'scrollbars=1,height='+Math.min(700, screen.availHeight)+',width='+Math.min(500, screen.availWidth)); return false;" target="_blank"><span>Online chat</span></a>
+                            </li>
+                          <li class="hidden-lg">
+                            <a ui-sref="indexf106.html?a=representatives"><span>Representatives</span></a>
+                                                </li>
+                          <li>
+                                                    <a ui-sref="contactus"><span>Contact Us</span></a>
+                                                </li>
+                          <li class="visible-xs ng-hide" style="padding:5px">
+                                                    Change language:
+                            <p style="padding-left:5px">
+                              <a ui-sref="index67f0.html?language=ru"><img src="images/flags/ru.png"> Русский</a>
+                                                    <a ui-sref="index9d3b.html?language=es"><img src="images/flags/es.png"> Español</a>
+                              <a ui-sref="index8888.html?language=fr"><img src="images/flags/fr.png"> Français</a>
+                              <a ui-sref="index2b61.html?language=ch"><img src="images/flags/ch.png"> 中文</a>
+                              <a ui-sref="index5a22.html?language=de"><img src="images/flags/de.png"> Deutsch</a>
+                            </p>
+                            </li>
+                        </ul>
                             </nav>
-                            <a class="responsive-menu-toggle" href="#"><i class="icon-menu-fine"></i></a>
+                            <a class="responsive-menu-toggle" ui-sref="#"><i class="icon-menu-fine"></i></a>
                         </div>
                     </div>
       <div class="top_bar_right">
-                        <div class="top_bar_right_wrapper"  >
+        <div class="top_bar_right_wrapper"  >
           <div class="wpml-languages enabled"style="top:15px;">
-                                <a class="active tooltip" style="border-color:#3b5982 !important"><img src="images/flags/en.png" alt="English" /><i class="icon-down-open-mini" style="color:#fff"></i>
-                                </a>
-                                <ul class="wpml-lang-dropdown" style="border-color:#3b5982 !important">
-                                    <li><a href="index67f0.html?language=ru"><img src="images/flags/ru.png" alt="Russian" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
-                                    <li><a href="index9d3b.html?language=es"><img src="images/flags/es.png" alt="Español" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
-                                    <li><a href="index8888.html?language=fr"><img src="images/flags/fr.png" alt="Français" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
-                <li><a href="index2b61.html?language=ch"><img src="images/flags/ch.png" alt="中文" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
-                <li><a href="index5a22.html?language=de"><img src="images/flags/de.png" alt="Deutsch" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
-                              </ul>
-                            </div>
+            <a class="active tooltip" style="border-color:#3b5982 !important"><img src="images/flags/en.png" alt="English" /><i class="icon-down-open-mini" style="color:#fff"></i>
+            </a>
+            <ul class="wpml-lang-dropdown" style="border-color:#3b5982 !important">
+                <li><a ui-sref="index67f0.html?language=ru"><img src="images/flags/ru.png" alt="Russian" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
+                <li><a ui-sref="index9d3b.html?language=es"><img src="images/flags/es.png" alt="Español" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
+                <li><a ui-sref="index8888.html?language=fr"><img src="images/flags/fr.png" alt="Français" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
+                <li><a ui-sref="index2b61.html?language=ch"><img src="images/flags/ch.png" alt="中文" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
+                <li><a ui-sref="index5a22.html?language=de"><img src="images/flags/de.png" alt="Deutsch" /><i class="icon-down-open-mini" style="color:#3b5982"></i></a></li>
+          </ul>
+        </div>
         </div>
       </div>  
 
