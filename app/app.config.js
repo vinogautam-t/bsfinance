@@ -154,6 +154,78 @@ function routes($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/referals/index.html',
             controller: 'referalsController'
         },
+        {
+            name: 'referallinks',
+            label: 'Referallinks',
+            auth: false,
+            restricted:false,
+            url: '/referallinks',
+            templateUrl: 'app/referallinks/index.html',
+            controller: 'referallinksController'
+        },
+        {
+            name: 'editaccount',
+            label: 'Editaccount',
+            auth: false,
+            restricted:false,
+            url: '/editaccount',
+            templateUrl: 'app/editaccount/index.html',
+            controller: 'editaccountController'
+        },
+        {
+            name: 'security',
+            label: 'Security',
+            auth: false,
+            restricted:false,
+            url: '/security',
+            templateUrl: 'app/security/index.html',
+            controller: 'securityController'
+        },
+        {
+            name: 'top',
+            label: 'Top',
+            auth: false,
+            restricted:false,
+            url: '/top',
+            templateUrl: 'app/top/index.html',
+            controller: 'topController'
+        },
+        {
+            name: 'last',
+            label: 'Last',
+            auth: false,
+            restricted:false,
+            url: '/last',
+            templateUrl: 'app/last/index.html',
+            controller: 'lastController'
+        },
+        {
+            name: 'paidout',
+            label: 'Paidout',
+            auth: false,
+            restricted:false,
+            url: '/paidout',
+            templateUrl: 'app/paidout/index.html',
+            controller: 'paidoutController'
+        },
+        {
+            name: 'rules',
+            label: 'Rules',
+            auth: false,
+            restricted:false,
+            url: '/rules',
+            templateUrl: 'app/rules/index.html',
+            controller: 'rulesController'
+        },
+        {
+            name: 'privacy',
+            label: 'Privacy',
+            auth: false,
+            restricted:false,
+            url: '/privacy',
+            templateUrl: 'app/privacy/index.html',
+            controller: 'privacyController'
+        },
     ]
 
     angular.forEach(states, function (state) {
@@ -162,7 +234,7 @@ function routes($stateProvider, $urlRouterProvider) {
 };
 
 
-engynnapp.directive('ngEnter', function () {
+app.directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.which === 13) {
@@ -175,7 +247,7 @@ engynnapp.directive('ngEnter', function () {
     };
 });
 
-engynnapp.directive('ngEscape', function () {
+app.directive('ngEscape', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.key === "Escape") {
@@ -188,7 +260,7 @@ engynnapp.directive('ngEscape', function () {
     };
 });
 
-engynnapp.directive('ngUparrow', function () {
+app.directive('ngUparrow', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.which === 38) {
@@ -201,7 +273,7 @@ engynnapp.directive('ngUparrow', function () {
     };
 });
 
-engynnapp.directive('ngDownarrow', function () {
+app.directive('ngDownarrow', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.which === 40) {
@@ -214,7 +286,7 @@ engynnapp.directive('ngDownarrow', function () {
     };
 });
 
-engynnapp.directive("repeatEnd", function(){
+app.directive("repeatEnd", function(){
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
@@ -225,7 +297,7 @@ engynnapp.directive("repeatEnd", function(){
     };
 });
 
-engynnapp.directive("datePicker", function(){
+app.directive("datePicker", function(){
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
@@ -234,7 +306,7 @@ engynnapp.directive("datePicker", function(){
     };
 });
 
-engynnapp.directive("telInput", function($parse){
+app.directive("telInput", function($parse){
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
@@ -249,7 +321,7 @@ engynnapp.directive("telInput", function($parse){
     };
 });
 
-engynnapp.directive("cdatePicker", function(){
+app.directive("cdatePicker", function(){
     return {
         restrict: "A",
         link: function (scope, element, attrs) {
@@ -258,7 +330,7 @@ engynnapp.directive("cdatePicker", function(){
     };
 });
 
-engynnapp.directive('ngRightClick', function($parse) {
+app.directive('ngRightClick', function($parse) {
     return function(scope, element, attrs) {
         var fn = $parse(attrs.ngRightClick);
         element.bind('contextmenu', function(event) {
@@ -270,7 +342,7 @@ engynnapp.directive('ngRightClick', function($parse) {
     };
 });
 
-engynnapp.directive('triggerUpload', function() {
+app.directive('triggerUpload', function() {
   return {
     restrict: 'A',
     require: '?ngModel',
@@ -282,7 +354,7 @@ engynnapp.directive('triggerUpload', function() {
   };
 });
 
-engynnapp.directive('fileUpload', function(ApiService, $rootScope, $timeout, $state, $q) {
+app.directive('fileUpload', function(ApiService, $rootScope, $timeout, $state, $q) {
   return {
     restrict: 'A',
     require: '?ngModel',
@@ -436,7 +508,7 @@ engynnapp.directive('fileUpload', function(ApiService, $rootScope, $timeout, $st
   };
 });
 
-engynnapp.filter('checkurl', function ($rootScope) {
+app.filter('checkurl', function ($rootScope) {
   return function (item) {
     var res = (item || "").replace(
         /([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi,
@@ -464,7 +536,7 @@ engynnapp.filter('checkurl', function ($rootScope) {
   };
 });
 
-engynnapp.filter('notiName', function ($rootScope) {
+app.filter('notiName', function ($rootScope) {
   return function (item, id, ename) {
       if($rootScope.users_obj[id]){
             var res = (item || "").replace('[name]', '<strong>'+$rootScope.users_obj[id].user_login+'</strong>');
@@ -476,19 +548,19 @@ engynnapp.filter('notiName', function ($rootScope) {
   };
 });
 
-engynnapp.filter('to_trusted', ['$sce', function($sce){
+app.filter('to_trusted', ['$sce', function($sce){
     return function(text) {
         return $sce.trustAsHtml(text);
     };
 }]);
 
-engynnapp.filter('secure_url', ['$sce', function($sce){
+app.filter('secure_url', ['$sce', function($sce){
     return function(text) {
         return $sce.trustAsResourceUrl(text);
     };
 }]);
 
-engynnapp.filter('shortContent', function () {
+app.filter('shortContent', function () {
     return function (item, maxLength) {
         if((item || "").length < maxLength){
             return item;
@@ -499,7 +571,7 @@ engynnapp.filter('shortContent', function () {
     }
 });
 
-engynnapp.filter('youtubeurl', function () {
+app.filter('youtubeurl', function () {
   return function (item) {
     var regex = /([^\S]|^)(((https?\:\/\/)|(www\.))(\S+))/gi;
     var found = (item || "").match(regex);
@@ -538,7 +610,7 @@ Object.size = function(obj) {
 
 
 
-engynnapp
+app
     
     .filter('dformat', function($filter){
         return function(input){
@@ -707,9 +779,9 @@ var compareTo = function() {
     };
 };
  
-engynnapp.directive("compareTo", compareTo);
+app.directive("compareTo", compareTo);
 
-engynnapp.value('ISIONICAPP', 0)
+app.value('ISIONICAPP', 0)
 .config(['$compileProvider',function( $compileProvider ){
     //$compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|file|blob|cdvfile):|data:image//);
 }])

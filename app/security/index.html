@@ -1,0 +1,71 @@
+<div class="content_wrapper clearfix">
+	<div class="sections_group">
+		<div class="entry-content">
+			<div class="section mcb-section">
+				<div class="section_wrapper mcb-section-inner">
+					<div class="wrap mcb-wrap three-fourth valign-top clearfix">
+						<div class="mcb-wrap-inner">
+							<div class="column mcb-column one column_column column-margin-0px">
+								<div class="column_attr clearfix">
+									<h2><span class=themecolor>S</span>ecurity</h2>
+								</div>
+<h3><span class=themecolor>Two Factor</span> Authentication</h3>
+<form method=post name=mainform><input type="hidden" name="form_id" value="15755312142391"><input type="hidden" name="form_token" value="ad5e39390db8e6d52063731c75bd70c4">
+<input type=hidden name=a value="security">
+<input type=hidden name=action value="tfa_save">
+<input type=hidden name=time>
+
+1. Install <a href="http://m.google.com/authenticator" targe=_blank>Google Authenticator</a> on your mobile device.<br>
+2. Your Secret Code is: <b>EBVBPLYYZITGK2PQ</b> <input type=hidden name="tfa_secret" value="EBVBPLYYZITGK2PQ"><br>
+<img src="https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl=otpauth%3A%2F%2Ftotp%2Fbsfinance.biz%3Fsecret%3DEBVBPLYYZITGK2PQ"><br>
+3. Please enter two factor token from Google Authenticator to verify correct setup:<br> 
+<input type=text name="code"> <input type=submit value="Enable" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff">
+</form>
+
+
+
+<script language=javascript>
+document.mainform.time.value = (new Date()).getTime();
+
+function checkform() {
+  if (!document.mainform.code.value.match(/^[0-9]{6}$/)) {
+    alert("Please type code!");
+    document.mainform.code.focus();
+    return false;
+  }
+  return true;
+}
+</script>
+
+ 
+								
+<form method=post><input type="hidden" name="form_id" value="15755312142391"><input type="hidden" name="form_token" value="ad5e39390db8e6d52063731c75bd70c4">
+<input type=hidden name=a value="security">
+<input type=hidden name=action value="save">
+	<h3 style="padding: 20px 0px 0px 0px">Detect <span class=themecolor>IP Address</span> Change Sensitivity</h3>
+<input type=radio name=ip value=disabled checked>Disabled<br>
+<input type=radio name=ip value=medium >Medium<br>
+<input type=radio name=ip value=high >High<br>
+<input type=radio name=ip value=always >Paranoic<br>
+
+	<h3 style="padding: 20px 0px 0px 0px">Detect <span class=themecolor>Browser</span> Change</h3>
+<input type=radio name=browser value=disabled checked>Disabled<br>
+<input type=radio name=browser value=enabled >Enabled<br><br>
+<input type=submit value="Set" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff">
+</form>
+
+								</div>
+							</div>
+						</div>
+						 <div ng-include="'app/layouts/side_nav.html'"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- header div !-->
+		</div>
+	</div>
+</div>
+<!-- end header div !-->
