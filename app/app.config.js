@@ -100,6 +100,60 @@ function routes($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/start/index.html',
             controller: 'startController'
         },
+        {
+            name: 'account',
+            label: 'Account',
+            auth: false,
+            restricted:false,
+            url: '/account',
+            templateUrl: 'app/account/index.html',
+            controller: 'accountController'
+        },
+        {
+            name: 'deposit',
+            label: 'Deposit',
+            auth: false,
+            restricted:false,
+            url: '/deposit',
+            templateUrl: 'app/deposit/index.html',
+            controller: 'depositController'
+        },
+        {
+            name: 'withdraw',
+            label: 'Withdraw',
+            auth: false,
+            restricted:false,
+            url: '/withdraw',
+            templateUrl: 'app/withdraw/index.html',
+            controller: 'withdrawController'
+        },
+        {
+            name: 'history',
+            label: 'History',
+            auth: false,
+            restricted:false,
+            url: '/history',
+            templateUrl: 'app/history/index.html',
+            controller: 'historyController'
+        },
+        {
+            name: 'deposit_list',
+            label: 'Deposit_list',
+            auth: false,
+            restricted:false,
+            url: '/deposit_list',
+            templateUrl: 'app/deposit_list/index.html',
+            controller: 'deposit_listController'
+        },
+        {
+            name: 'referals',
+            label: 'Referals',
+            auth: false,
+            restricted:false,
+            url: '/referals',
+            templateUrl: 'app/referals/index.html',
+            controller: 'referalsController'
+        },
     ]
 
     angular.forEach(states, function (state) {
