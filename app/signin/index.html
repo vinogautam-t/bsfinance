@@ -16,15 +16,12 @@
 	<div class="section_wrapper mcb-section-inner">
 		<div class="wrap mcb-wrap one-second valign-top clearfix">
 			<div class="mcb-wrap-inner">
-				<form method=post name=mainform onsubmit="return checkform()"><input type="hidden" name="form_id" value="15750434375376"><input type="hidden" name="form_token" value="7cf98c6cd5c8e1697885f0ea34c782c8">
-				<input type=hidden name=a value='do_login'>
-				<input type=hidden name=follow value=''>
-				<input type=hidden name=follow_id value=''>
-				<div class="column one" style="margin-bottom:0px"><h5 style="display: inline;padding:0px">Username</h5> <input type=text name=username value='' size=30 autofocus="autofocus"></div>
-				<div class="column one" style="margin-top:0px;margin-bottom:0px"><h5 style="display: inline;padding:0px">Password</h5> <input type=password name=password value='' size=30></div>
+				<form method=post name=mainform novalidate="" ng-class="{saveClicked: pageInfo.saveClicked}" >
+				<div class="column one" style="margin-bottom:0px"><h5 style="display: inline;padding:0px">Username</h5> <input type=text required="" ng-model="login.username" name=username value='' size=30 autofocus="autofocus"></div>
+				<div class="column one" style="margin-top:0px;margin-bottom:0px"><h5 style="display: inline;padding:0px">Password</h5> <input required="" ng-model="login.password" type=password name=password value='' size=30></div>
 				<div class="column one" style="margin-top:0px;margin-bottom:0px"><h5 style="padding:0px">Captcha</h5><img src="index9cb2.html?a=show_validation_image&amp;PHPSESSID=unra33fnmakh57lsl7d809n3g2&amp;rand=1142993976" style="with:150px;height:36px"><br> 
-				<input type=text name=validation_number placeholder="captcha" size=30 style="display:inline"></div>
-				<div class="column one" style="margin-top:0px;margin-bottom:0px"><input type="submit" value="Login" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff"></div>
+				<input required="" ng-model="login.captcha"  type=text name=validation_number placeholder="captcha" size=30 style="display:inline"></div>
+				<div class="column one" style="margin-top:0px;margin-bottom:0px"><input ng-click="pageInfo.saveClicked=true;" type="submit" value="Login" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff"></div>
 </form>
 		</div>
 		<div class="wrap mcb-wrap one-second valign-top clearfix">

@@ -143,7 +143,7 @@ function routes($stateProvider, $urlRouterProvider) {
             restricted:false,
             url: '/deposit_list',
             templateUrl: 'app/deposit_list/index.html',
-            controller: 'deposit_listController'
+            controller: 'depositlistController'
         },
         {
             name: 'referals',

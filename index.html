@@ -32,6 +32,7 @@
     <!-- CSS -->
 	<link href="css/magnific-popup.html" rel="stylesheet">
     <link rel='stylesheet' href='css/global.css'>
+    <link rel='stylesheet' href='css/custom.css'>
 	<link rel='stylesheet' href='content/pay/css/structure.css'>
 	<link rel='stylesheet' href='content/pay/css/pay.css'>
     <link rel='stylesheet' href='content/pay/css/custom.css'>
@@ -60,35 +61,39 @@
 
     <!-- JS -->
     <script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/ui/jquery-ui.min.js"></script>
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-ui-router.min.js"></script>
     <script src="app/app.config.js"></script>
     <script src="app/index.controller.js"></script>
-    <script src="js/mfn.menu.js"></script>
-    <script src="js/jquery.plugins.js"></script>
-    <script src="js/jquery.jplayer.min.js"></script>
-    <script src="js/animations/animations.js"></script>
-    <script src="js/translate3d.js"></script>
-    <script src="js/scripts.js"></script>
-	<script src="js/calc.js"></script>
+    
 
 
     <script src="app/home/home.controller.js"></script>
     <script src="app/signup/signup.controller.js"></script>
     <script src="app/signin/signin.controller.js"></script>
-    <script>
-        jQuery(window).load(function() {
-            jQuery(".jq-tabs").tabs();
+    <script src="app/account/account.controller.js"></script>
+    <script src="app/calc/calc.controller.js"></script>
+    <script src="app/contactus/contactus.controller.js"></script>
+    <script src="app/deposit/deposit.controller.js"></script>
+    <script src="app/deposit_list/depositlist.controller.js"></script>
+    <script src="app/editaccount/editaccount.controller.js"></script>
+    <script src="app/faq/faq.controller.js"></script>
+    <script src="app/history/history.controller.js"></script>
+    <script src="app/last/last.controller.js"></script>
+    <script src="app/news/news.controller.js"></script>
+    <script src="app/paidout/paidout.controller.js"></script>
+    <script src="app/privacy/privacy.controller.js"></script>
+    <script src="app/ratings/ratings.controller.js"></script>
+    <script src="app/referallinks/referallinks.controller.js"></script>
+    <script src="app/referals/referals.controller.js"></script>
+    <script src="app/rules/rules.controller.js"></script>
+    <script src="app/security/security.controller.js"></script>
+    <script src="app/start/start.controller.js"></script>
+    <script src="app/terms/terms.controller.js"></script>
+    <script src="app/top/top.controller.js"></script>
+    <script src="app/withdraw/withdraw.controller.js"></script>
 
-            var retina = window.devicePixelRatio > 1 ? true : false;
-            if (retina) {
-                var retinaEl = jQuery("#logo img");
-                var retinaLogoW = retinaEl.width();
-                var retinaLogoH = retinaEl.height();
-                retinaEl.attr("src", "images/logo_ny-retina.png").width(retinaLogoW).height(retinaLogoH)
-            }
-        });
-    </script>
+    <script src="app/shared/api.service.js"></script>
+    <script src="app/shared/http.service.js"></script>
 </body>
 </html>
