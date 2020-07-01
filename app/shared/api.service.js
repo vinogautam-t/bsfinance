@@ -35,7 +35,7 @@ app.factory('ApiService', function (httpService, $q, APIURL, $rootScope, $timeou
         });
     };
     
-    apiService.bs_create_user = function (data) {
+    apiService.register = function (data) {
     	return httpService
         .post(APIURL+'bs_create_user', data)
         .then(function (res) {
@@ -67,6 +67,70 @@ app.factory('ApiService', function (httpService, $q, APIURL, $rootScope, $timeou
         });
     };
     
+    apiService.bs_plans = function(){
+        return httpService
+        .post(APIURL+'bs_plans', {})
+        .then(function (res) {
+            return res['data'];
+        });
+    };
+
+    apiService.bs_deposit_request = function(data){
+        data.user_id = $rootScope.loggedInUserInfo.ID;
+        return httpService
+        .post(APIURL+'bs_deposit_request', data)
+        .then(function (res) {
+            return res['data'];
+        });
+    };
+    
+     apiService.bs_withdraw_request = function(data){
+        data.user_id = $rootScope.loggedInUserInfo.ID;
+        return httpService
+        .post(APIURL+'bs_withdraw_request', data)
+        .then(function (res) {
+            return res['data'];
+        });
+    };
+
+    apiService.bs_deposit_list = function(){
+        var data = {};
+        data.user_id = $rootScope.loggedInUserInfo.ID;
+        return httpService
+        .post(APIURL+'bs_deposit_list', data)
+        .then(function (res) {
+            return res['data'];
+        });
+    };
+
+    apiService.bs_transaction_list = function(filter){
+        filter.user_id = $rootScope.loggedInUserInfo.ID;
+        return httpService
+        .post(APIURL+'bs_transaction_list', filter)
+        .then(function (res) {
+            return res['data'];
+        });
+    };
+
+    apiService.bs_home_data = function(){
+        var data = {};
+        data.user_id = $rootScope.loggedInUserInfo.ID;
+        return httpService
+        .post(APIURL+'bs_home_data', data)
+        .then(function (res) {
+            return res['data'];
+        });
+    };
+
+    apiService.bs_user_balance = function(){
+        var data = {};
+        data.user_id = $rootScope.loggedInUserInfo.ID;
+        return httpService
+        .post(APIURL+'bs_user_balance', data)
+        .then(function (res) {
+            return res['data'];
+        });
+    };
     
     return apiService;
 });

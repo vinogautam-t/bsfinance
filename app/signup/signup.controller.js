@@ -1,4 +1,4 @@
-app.controller('signupController', function($scope, $rootScope, $state, $timeout) {
+app.controller('signupController', function($scope, $rootScope, $state, $timeout, ApiService) {
 
 	$scope.pageInfo = {saveClicked: false};
 	$scope.register = {};

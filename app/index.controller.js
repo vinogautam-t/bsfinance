@@ -5,14 +5,14 @@ indexController.$inject = ['$rootScope', '$scope', '$state', '$window', '$timeou
 function indexController($rootScope, $scope, $state, $window, $timeout, $interval) {
     
     $scope.user = localStorage.getItem('bsuser');
-
+    $rootScope.loggedInUserInfo = {};
     if($scope.user){
-        $rootScope.loggedInUserInfo = {};
+        $rootScope.loggedInUserInfo = JSON.parse($scope.user);
     }
     
     $scope.logout = function(){
         localStorage.removeItem('bsuser');
-        
+        $rootScope.loggedInUserInfo = {};
         $state.go('home');
     }
     

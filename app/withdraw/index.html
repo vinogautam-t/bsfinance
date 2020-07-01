@@ -12,86 +12,25 @@
 
 		
 
-<form method=post><input type="hidden" name="form_id" value="15754511473376"><input type="hidden" name="form_token" value="090d4f5cceaeb1e8d3c5b926dbb3b28c">
-<input type=hidden name=a value=withdraw>
-<input type=hidden name=action value=preview>
-<input type=hidden name=say value="">
+<form method=post name=withdrawform ng-class="{saveClicked: pageInfo.saveClicked}">
+	<input type="hidden" name="form_id" value="15754511473376"><input type="hidden" name="form_token" value="090d4f5cceaeb1e8d3c5b926dbb3b28c">
+	<input type=hidden name=a value=withdraw>
+	<input type=hidden name=action value=preview>
+	<input type=hidden name=say value="">
 
 
 
-<h5 style="padding-top:20px">Account Balance: <span class=themecolor>$0.00</span></h5>
-<h5>Pending Withdrawals: <span class=themecolor>$</span></h5>
-
-<div class="column one mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="padding:5px;margin-bottom:0px;background-color:#3b5982">
-			<h5 style="margin: 10px">1. Choose the payment system</h5>
-			<table class=deposit_table style="margin-bottom:0px">
-				<thead>
-				<tr>
- 					<th style="width:20px">&nbsp;</th>
-					<th  style="text-align:left">Processing</th>
-					<th>Available</th>
-					<th>Pending</th>
-					<th>Account</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/18.gif" width=44 height=17 align=absmiddle> PerfectMoney</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/43.gif" width=44 height=17 align=absmiddle> Payeer</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/48.gif" width=44 height=17 align=absmiddle> Bitcoin</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/68.gif" width=44 height=17 align=absmiddle> Litecoin</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/69.gif" width=44 height=17 align=absmiddle> Ethereum</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/77.gif" width=44 height=17 align=absmiddle> Bitcoin Cash</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td style="text-align:left"><img src="images/71.gif" width=44 height=17 align=absmiddle> Dash</td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><b class=themecolor>$0.00</b></td>
-					<td><a href="?a=edit_account" id=blink>not set!</a></td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
+	<h5 style="padding-top:20px">Account Balance: <span class=themecolor>${{pageInfo.data.balance}}</span></h5>
+	<h5>Pending Withdrawals: <span class=themecolor>${{pageInfo.data.pending_withdraw ? pageInfo.data.pending_withdraw : 0}}</span></h5>
+	<h5>Amount to Withdraw ($): <input style="display:inline" type="number" name="amount"  size="15" required="" ng-model="withdraw.amount"></h5>
+	<h5>Notes: <input style="display:inline" type="text" name="notes" value=""  required="" ng-model="withdraw.notes"></h5>
+	
+	<div class="column one" style="margin-top:20px;margin-bottom:0px">	
+		<button type="submit" value="Submit" ng-click="pageInfo.saveClicked=true;doWithdraw();" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff">Submit</button>
 	</div>
-</div>
-		<h5 style="padding-top:20px">You have no funds to withdraw.</h5>
+
+	<h5 style="padding-top:20px">You have no funds to withdraw.</h5>
+
 </form>
 
 								</div>

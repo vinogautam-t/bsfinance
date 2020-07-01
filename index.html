@@ -33,17 +33,17 @@
 	<link href="css/magnific-popup.html" rel="stylesheet">
     <link rel='stylesheet' href='css/global.css'>
     <link rel='stylesheet' href='css/custom.css'>
+    <link rel='stylesheet' href='css/jquery.notify.css'>
 	<link rel='stylesheet' href='content/pay/css/structure.css'>
 	<link rel='stylesheet' href='content/pay/css/pay.css'>
     <link rel='stylesheet' href='content/pay/css/custom.css'>
 </head>
-<body class="color-custom style-default button-default layout-full-width no-content-padding header-transparent minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-line-below-80 menuo-no-borders menuo-right mobile-tb-hide mobile-side-slide mobile-mini-mr-ll tr-content be-reg-2074">
+<body class="{{currentState}}_page color-custom style-default button-default layout-full-width no-content-padding header-transparent minimalist-header-no sticky-header sticky-tb-color ab-hide subheader-both-center menu-line-below-80 menuo-no-borders menuo-right mobile-tb-hide mobile-side-slide mobile-mini-mr-ll tr-content be-reg-2074">
     <div id="Wrapper">
         <div ng-include="'app/layouts/header.html'"></div>
 
 
     <div id="Content">
-        <div ng-include="'app/layouts/content.html'"></div>
         <div class="section mcb-section">
     	   <ui-view id='views'></ui-view>
            <div ng-include="'app/layouts/footer.html'"></div>
@@ -61,6 +61,7 @@
 
     <!-- JS -->
     <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.notify.min.js"></script>
     <script src="js/angular/angular.min.js"></script>
     <script src="js/angular/angular-ui-router.min.js"></script>
     <script src="app/app.config.js"></script>

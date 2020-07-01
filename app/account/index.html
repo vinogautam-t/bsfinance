@@ -29,11 +29,25 @@
 	</div>
 </div>								
 <div class="column three-fourth column_column">
-	<h5 >Account balance: <span class=themecolor id="accbal">$0.00</span>
+	<h5 >Account balance: <span class=themecolor id="accbal">${{pageInfo.data.balance}}</span>
 		<span style="font-size:70%"></span></h5>
-	<h5><span class=hidden-xs style="padding-left:30px">&nbsp;</span><span style="font-size:120%;text-transform:uppercase" class=themecolor>Deposits</span> <br><span class=hidden-xs style="padding-left:30px">&nbsp;</span>Active Deposit: <span class=themecolor>$0.00</span></h5>
-	<h5><span class=hidden-xs style="padding-left:30px">&nbsp;</span><span style="font-size:120%;text-transform:uppercase" class=themecolor>Earnings</span> Earned total: <span class=themecolor>$0.00</span></h5>
-	<h5><span style="font-size:120%;text-transform:uppercase" class=themecolor>Withdrawals</span> Pending Withdrawal: <span class=themecolor>$0.00</span></h5>
+	<h5>
+		<span class=hidden-xs style="padding-left:30px"></span>
+		<span style="font-size:120%;text-transform:uppercase" class=themecolor>Deposits</span> <br>
+		<span class=hidden-xs style="padding-left:30px">&nbsp;</span>Active Deposit: 
+		<span class=themecolor>${{pageInfo.data.deposit ? pageInfo.data.deposit : 0}}</span><br>
+		<span class=hidden-xs style="padding-left:30px">&nbsp;</span>Pending Deposit: 
+		<span class=themecolor>${{pageInfo.data.pending_deposit ? pageInfo.data.pending_deposit : 0}}</span>
+	</h5>
+
+	<h5>
+		<span class=hidden-xs style="padding-left:30px"></span>
+		<span style="font-size:120%;text-transform:uppercase" class=themecolor>Withdrawal</span> <br>
+		<span class=hidden-xs style="padding-left:30px">&nbsp;</span>Active Withdrawal: 
+		<span class=themecolor>${{pageInfo.data.withdraw ? pageInfo.data.withdraw : 0}}</span><br>
+		<span class=hidden-xs style="padding-left:30px">&nbsp;</span>Pending Withdrawal: 
+		<span class=themecolor>${{pageInfo.data.pending_withdraw ? pageInfo.data.pending_withdraw : 0}}</span>
+	</h5>
 </div>
                         <div class="section" id="accordion flv_sections_16">
                             <div class="section_wrapper clearfix">

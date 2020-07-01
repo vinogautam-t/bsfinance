@@ -10,399 +10,105 @@
 							<div class="column mcb-column three-fourth column_column column-margin-0px">
 								<div class="column_attr clearfix">
 									<h2><span class=themecolor>M</span>ake a <span class=themecolor>D</span>eposit</h2>
-
-<form method=post name="spendform"><input type="hidden" name="form_id" value="15754504356554"><input type="hidden" name="form_token" value="7abe15f50cca8b5972eba93b0b6a2e11">
-<input type=hidden name=a value=deposit>
-
- <div class="column one mobile_dep column_column">
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="background-color:#3b5982;padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='3'  checked  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='3'  checked  onclick="document.spendform.compound.disabled=true;"> --> 2.1% DAILY FOR 20 DAYS</h5>
-
+									<form novalidate="" method="post" name="spendform" ng-class="{saveClicked: pageInfo.saveClicked}">
 	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS1</td>
-		<td class=item align=right>
-							$10.00 - $15000.00
-				
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>2.10% Daily</td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[3] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="background-color:#3b5982;padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='4'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='4'  onclick="document.spendform.compound.disabled=false;"> --> 2.5 DAILY FOR 35 DAYS</h5>
-
 	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS2</td>
-		<td class=item align=right>
-																																																															$20000.00 - $50000.00
-																																																					
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>2.50% Daily</td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[4] = [70];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="background-color:#3b5982;padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='5'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='5'  onclick="document.spendform.compound.disabled=false;"> --> 3.5% DAILY FOR 55 DAYS</h5>
-
 	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
+
+	 <div class="column one mobile_dep column_column">
+	<div class="column one-second mobile_dep column_column" ng-repeat="plan in plans" ng-if="plan.type == 'daily'">
+		<div class="column_attr">
+			<div class="alert alert_info" style="background-color:#3b5982;padding:5px">
+
+		<h5 style="margin-top:10px"><input ng-model="deposit.plan_id" type="radio" name="h_id" value="{{plan.id}}" > {{plan.return_percentage}}% DAILY FOR {{plan.no_of_days}} DAYS</h5>
+
+		
+	<table class="deposit_table">
+	<thead>
 		<tr>
-		<td style="font-size:130%;font-weight:bold">BS3</td>
-		<td class=item align=right>
-																																																															$50000.00 - $200000.00
-																																																					
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>3.50% Daily</td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[5] = [100];
-</script>
-		</div>
-	</div>
-</div>
- </div>
-
- <div class="column one mobile_dep column_column">
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="background-color:#c4ba1c;padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='11'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='11'  onclick="document.spendform.compound.disabled=true;"> --> VIP555 AFTER 12 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">VIP555</td>
-		<td class=item align=right>
-																																																				 $5000.00 - $200000.00
-																																											
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>555.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[11] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="background-color:#c4ba1c;padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='12'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='12'  onclick="document.spendform.compound.disabled=true;"> --> VIP1555 AFTER 24 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">VIP1555</td>
-		<td class=item align=right>
-																																																															 $4000.00 - $50000.00
-																																																					
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>1555.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[12] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='6'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='6'  onclick="document.spendform.compound.disabled=true;"> --> 655% AFTER 25 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS4</td>
-		<td class=item align=right>
-												$3000.00 - $75000.00
-								
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>655.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[6] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='7'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='7'  onclick="document.spendform.compound.disabled=true;"> --> 1500% AFTER 45 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS5</td>
-		<td class=item align=right>
-																		$2000.00 - $50000.00
-													
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>1500.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[7] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='8'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='8'  onclick="document.spendform.compound.disabled=true;"> --> 3000% AFTER 60 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS6</td>
-		<td class=item align=right>
-																									$1000.00 - $15000.00
-																			
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>3000.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[8] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='9'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='9'  onclick="document.spendform.compound.disabled=true;"> --> 6500% AFTER 90 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS7</td>
-		<td class=item align=right>
-																																	$500.00 - $10000.00
-																										
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>6500.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[9] = [];
-</script>
-		</div>
-	</div>
-</div>
- </div>
-
-<div class="column one-second mobile_dep column_column">
-	<div class="column_attr">
-		<div class="alert alert_info" style="padding:5px">
-
-	<h5 style="margin-top:10px"><input type=radio name=h_id value='10'  onclick="updateCompound()"> 
-<!--	<input type=radio name=h_id value='10'  onclick="document.spendform.compound.disabled=true;"> --> 16000% AFTER 160 DAYS</h5>
-
-	
-<table class=deposit_table>
-<thead>
-	<tr>
-		<th>Plan</th>
-		<th>Amount</th>
-		<th>Profit</nobr></th>
-	</tr>
-</thead>
-<tbody>
-		<tr>
-		<td style="font-size:130%;font-weight:bold">BS8</td>
-		<td class=item align=right>
-																																										 $250.00 - $10000.00
-																																		
-		</td>
-		<td style="font-size:130%;font-weight:bold" align=right>16000.00% </td>
-	</tr>
-		</tbody>
-</table>
-<script>
-cps[10] = [];
-</script>
-		</div>
-	</div>
-</div>
-
-<div class="column one column_column">
-<h5>Your account balance: $0.00 
-	<span style="font-size:70%">
-                                                                              	</span>
-</h5>
-<h5 >Amount to Spend ($): <input style="display:inline" type=text name=amount value='10.00' size=15 style="text-align:right;"></h5>
-<h5 style="margin-bottom:0px">Spend from the account balance</h5>
-																																																							<h5 style="margin-bottom:0px">Spend from external processor</h5>
-					<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_18" checked> <img src="images/d_18.png" ALT="PerfectMoney" title="PerfectMoney" style="vertical-align: middle; height:40px"></div>
-							<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_43" > <img src="images/d_43.png" ALT="Payeer" title="Payeer" style="vertical-align: middle; height:40px"></div>
-																																																							<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_48" > <img src="images/d_48.png" ALT="Bitcoin" title="Bitcoin" style="vertical-align: middle; height:40px"></div>
-							<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_68" > <img src="images/d_68.png" ALT="Litecoin" title="Litecoin" style="vertical-align: middle; height:40px"></div>
-										<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_69" > <img src="images/d_69.png" ALT="Ethereum" title="Ethereum" style="vertical-align: middle; height:40px"></div>
-							<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_77" > <img src="images/d_77.png" ALT="Bitcoin Cash" title="Bitcoin Cash" style="vertical-align: middle; height:40px"></div>
-							<div style="display: block;margin-bottom:5px"><input type=radio name=type value="process_71" > <img src="images/d_71.png" ALT="Dash" title="Dash" style="vertical-align: middle; height:40px"></div>
-									<div class="column one" style="margin-top:20px;margin-bottom:0px">
-	<button type="submit" value="Spend" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff">Spend</button>
-</div>
-
-
-<script language=javascript>
-for (i = 0; i<document.spendform.type.length; i++) {
-  if ((document.spendform.type[i].value.match(/^process_/))) {
-    document.spendform.type[i].checked = true;
-    break;
-  }
-}
-updateCompound();
-</script>
-
-</form>
-									</div>
-								</div>
-							</div>
-							 
-						</div>
-						<div ng-include="'app/layouts/side_nav.html'"></div>
-					</div>
-				</div>
+			<th>Plan</th>
+			<th>Amount</th>
+			<th>Profit</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>
+			<td style="font-size:130%;font-weight:bold">{{plan.name}}</td>
+			<td class="item" align="right">${{plan.minamount}}.00 - ${{plan.maxamount}}.00</td>
+			<td style="font-size:130%;font-weight:bold" align="right">${{plan.return_percentage}}% Daily</td>
+		</tr>
+			</tbody>
+	</table>
 			</div>
 		</div>
 	</div>
-</div>
-<!-- header div !-->
+
+	
+
+	
+	 </div>
+
+	 <div class="column one mobile_dep column_column">
+	<div class="column one-second mobile_dep column_column" ng-repeat="plan in plans" ng-if="plan.type !== 'daily'">
+		<div class="column_attr">
+			<div class="alert alert_info" style="background-color:{{plan.vip == 1 ? '#c4ba1c' : ''}};padding:5px">
+
+		<h5 style="margin-top:10px"><input ng-model="deposit.plan_id" type="radio" name="h_id" value="{{plan.id}}" > {{plan.return_percentage}}% AFTER {{plan.no_of_days}} DAYS</h5>
+
+		
+	<table class="deposit_table">
+	<thead>
+		<tr>
+			<th>Plan</th>
+			<th>Amount</th>
+			<th>Profit</th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>
+			<td style="font-size:130%;font-weight:bold">{{plan.name}}</td>
+			<td class="item" align="right">${{plan.minamount}}.00 - ${{plan.maxamount}}.00</td>
+			<td style="font-size:130%;font-weight:bold" align="right">${{plan.return_percentage}}% </td>
+		</tr>
+			</tbody>
+	</table>
+			</div>
 		</div>
 	</div>
+
+	 </div>
+
+	
+
+		<div class="column one column_column">
+			<h5>Your account balance: $0.00 
+				<span style="font-size:70%"></span>
+			</h5>
+			<h5>Amount to Spend ($): <input style="display:inline" type="text" name="amount" value="10.00" size="15" required="" ng-model="deposit.amount"></h5>
+			<h5>Reference Id: <input style="display:inline" type="text" name="refernceid" value="" size="15" required="" ng-model="deposit.reference_id"></h5>
+			<h5>Notes: <input style="display:inline" type="text" name="notes" value="" size="15" required="" ng-model="deposit.notes"></h5>
+		</div>
+
+		<div class="column one" style="margin-top:20px;margin-bottom:0px">	
+			<button type="submit" value="Deposit" ng-click="pageInfo.saveClicked=true;doDeposit();" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff">Deposit</button>
+		</div>
+
+
+</form>
+</div>
+</div>
+</div>
+
+	<div ng-include="'app/layouts/side_nav.html'"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- header div !-->
+</div>
+</div>
 </div>
 <!-- end header div !-->

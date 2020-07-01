@@ -1,3 +1,99 @@
+<div ng-if="currentState == 'home'" ng-include="'app/layouts/content.html'"></div>
+<div ng-if="pageInfo.action" class="bs_overlay"  ng-click="pageInfo.action=false;">
+    <div class="section_wrapper mcb-section-inner" ng-if="pageInfo.action =='investors'" ng-click="$event.stopPropagation();">
+        <div class="wrap mcb-wrap one valign-top clearfix">
+            <div class="mcb-wrap-inner">
+                <div class="column mcb-column one column_column column-margin-0px">
+                    <div class="column_attr clearfix">
+                        <h2><span class=themecolor>T</span>op <span class=themecolor>I</span>nvestors</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column one column_column">
+            <div class="column_attr">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="clear">Username</th>
+                            <th align=center>Reg. Date</th>
+                            <th style="text-align: right !important">Deposit</th>
+                        </tr>
+                    </thead>
+                    <tbody class=stats>
+                        <tr ng-repeat="dt in pageInfo.data.investors">
+                            <th>{{dt.name}}</th>
+                            <td align=center>{{dt.registered}}</td>
+                            <td style="text-align: right !important;font-family: Arial, Times New Roman">${{dt.amt}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="section_wrapper mcb-section-inner" ng-if="pageInfo.action =='deposits'" ng-click="$event.stopPropagation();">
+        <div class="wrap mcb-wrap one valign-top clearfix">
+            <div class="mcb-wrap-inner">
+                <div class="column mcb-column one column_column column-margin-0px">
+                    <div class="column_attr clearfix">
+                        <h2><span class=themecolor>L</span>ast <span class=themecolor>I</span>nvestments</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column one column_column">
+            <div class="column_attr">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="clear">Username</th>
+                            <th align=center>Payment Date</th>
+                            <th style="text-align: right !important">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class=stats>
+                        <tr ng-repeat="dt in pageInfo.data.deposits">
+                            <th>{{dt.name}}</th>
+                            <td align=center>{{dt.transaction_date}}</td>
+                            <td style="text-align: right !important;font-family: Arial, Times New Roman">${{dt.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="section_wrapper mcb-section-inner" ng-if="pageInfo.action =='withdraw'" ng-click="$event.stopPropagation();">
+        <div class="wrap mcb-wrap one valign-top clearfix">
+            <div class="mcb-wrap-inner">
+                <div class="column mcb-column one column_column column-margin-0px">
+                    <div class="column_attr clearfix">
+                        <h2><span class=themecolor>L</span>ast <span class=themecolor>P</span>ayments</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column one column_column">
+            <div class="column_attr">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="clear">Username</th>
+                            <th align=center>Payment Date</th>
+                            <th style="text-align: right !important">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody class=stats>
+                        <tr ng-repeat="dt in pageInfo.data.withdraw">
+                            <th>{{dt.name}}</th>
+                            <td align=center>{{dt.transaction_date}}</td>
+                            <td style="text-align: right !important;font-family: Arial, Times New Roman">${{dt.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="section_wrapper mcb-section-inner">
 		<div class="wrap mcb-wrap one valign-top clearfix">
 			<div class="mcb-wrap-inner">

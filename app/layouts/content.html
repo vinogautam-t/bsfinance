@@ -10,12 +10,12 @@
                                 <div class="column_attr clearfix align_center">
 									<div class=hidden-xs style="padding-top:120px">&nbsp;</div>
                                     <h1>Running days <font style="color:#67ffd1">683</font></h1>
-										<h4 class="themecolor">Since <font style="color:#fff">Jan 15, 2018</font> Total clients <font style="color:#fff">69386</font>
+										<h4 class="themecolor">Since <font style="color:#fff">Jan 15, 2018</font> Total clients <font style="color:#fff">{{pageInfo.data.users}}</font>
 										<br>
-										Total deposited <font style="color:#fff">$348046843.44</font> Total withdrawn <font style="color:#fff">$198779815.4</font></h4>
-                                    <a class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff" ui-sref="top"><span class="button_icon" style="color:#fff"><i class="icon-guest" style="color:#fff !important;"></i></span><span class="button_label">Top investors</span></a>
-                                    <a class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff" ui-sref="last"><span class="button_icon"><i class="icon-docs" style="color:#fff !important;"></i></span><span class="button_label">Last investments</span></a>
-                                    <a class="button button_right button_size_1 button_js" ui-sref="paidout" style="background-color:#53a5f8 !important; color:#fff"><span class="button_icon"><i class="icon-right-circled" style="color:#fff !important;"></i></span><span class="button_label">Last payments</span></a>
+										Total deposited <font style="color:#fff">${{pageInfo.data.total_deposit}}</font> Total withdrawn <font style="color:#fff">${{pageInfo.data.total_withdraw}}</font></h4>
+                                    <a class="button button_right button_size_1 button_js cp" style="background-color:#53a5f8 !important; color:#fff" ng-click="pageInfo.action = 'investors';"><span class="button_icon" style="color:#fff"><i class="icon-guest" style="color:#fff !important;"></i></span><span class="button_label">Top investors</span></a>
+                                    <a class="button button_right button_size_1 button_js cp" style="background-color:#53a5f8 !important; color:#fff" ng-click="pageInfo.action = 'deposits';"><span class="button_icon"><i class="icon-docs" style="color:#fff !important;"></i></span><span class="button_label">Last investments</span></a>
+                                    <a class="button button_right button_size_1 button_js cp" ng-click="pageInfo.action = 'withdraw';" style="background-color:#53a5f8 !important; color:#fff"><span class="button_icon"><i class="icon-right-circled" style="color:#fff !important;"></i></span><span class="button_label">Last payments</span></a>
 										<h4 class="themecolor">Last deposit <font style="color:#fff">$10.00</font> Last withdraw <font style="color:#fff">$3.15</font>
 										<br>
 										Visitors online <font style="color:#fff">2241</font>

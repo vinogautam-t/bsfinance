@@ -1,6 +1,7 @@
 var app = angular.module('app', 
     ['ui.router'])
-.value('APIURL', 'http://localhost/Karthi/bsfinance/api/wp-admin/admin-ajax.php?action=');
+.value('APIURL', 'http://localhost/bsfinance/api/wp-admin/admin-ajax.php?action=');
+//.value('APIURL', 'http://localhost/Karthi/bsfinance/api/wp-admin/admin-ajax.php?action=');
 app
 .config(routes);
 
@@ -17,7 +18,12 @@ function routes($stateProvider, $urlRouterProvider) {
             restricted:false,
             url: '/home',
             templateUrl: 'app/home/index.html',
-            controller: 'homeController'
+            controller: 'homeController',
+            resolve: {
+                DATA : function(ApiService, $stateParams) {
+                    return ApiService.bs_home_data();
+                }
+            }
         },
         {
             name: 'signup',
@@ -107,7 +113,12 @@ function routes($stateProvider, $urlRouterProvider) {
             restricted:false,
             url: '/account',
             templateUrl: 'app/account/index.html',
-            controller: 'accountController'
+            controller: 'accountController',
+            resolve: {
+                DATA: function(ApiService){
+                    return ApiService.bs_user_balance();
+                }
+            }
         },
         {
             name: 'deposit',
@@ -116,7 +127,12 @@ function routes($stateProvider, $urlRouterProvider) {
             restricted:false,
             url: '/deposit',
             templateUrl: 'app/deposit/index.html',
-            controller: 'depositController'
+            controller: 'depositController',
+            resolve: {
+                DATA : function(ApiService, $stateParams) {
+                    return ApiService.bs_plans();
+                }
+            }
         },
         {
             name: 'withdraw',
@@ -125,7 +141,12 @@ function routes($stateProvider, $urlRouterProvider) {
             restricted:false,
             url: '/withdraw',
             templateUrl: 'app/withdraw/index.html',
-            controller: 'withdrawController'
+            controller: 'withdrawController',
+            resolve: {
+                DATA: function(ApiService){
+                    return ApiService.bs_user_balance();
+                }
+            }
         },
         {
             name: 'history',
@@ -143,7 +164,12 @@ function routes($stateProvider, $urlRouterProvider) {
             restricted:false,
             url: '/deposit_list',
             templateUrl: 'app/deposit_list/index.html',
-            controller: 'depositlistController'
+            controller: 'depositlistController',
+            resolve: {
+                DATA : function(ApiService, $stateParams) {
+                    return ApiService.bs_deposit_list();
+                }
+            }
         },
         {
             name: 'referals',
@@ -162,6 +188,7 @@ function routes($stateProvider, $urlRouterProvider) {
             url: '/referallinks',
             templateUrl: 'app/referallinks/index.html',
             controller: 'referallinksController'
+
         },
         {
             name: 'editaccount',

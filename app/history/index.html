@@ -52,13 +52,13 @@
 </div>
 <div class="column one-fourth mobile_dep column_column">
 	<div class="column_attr align_left">
-			<select name=type style="display:inline" onchange="document.opts.submit();">
-			<option value="">All transactions</option>
-						<option value="deposit" >Deposit</option>
-						<option value="withdrawal" >Withdrawal</option>
-						<option value="earning" >Earning</option>
-						<option value="commissions" >Referral commission</option>
-						</select>
+			<select ng-model="pageInfo.type" name=type style="display:inline" onchange="document.opts.submit();">
+				<option value="">All transactions</option>
+				<option value="deposit" >Deposit</option>
+				<option value="withdraw" >Withdrawal</option>
+				<option value="return" >Earning</option>
+				<option value="commissions" >Referral commission</option>
+			</select>
 		</h5>
 	</div>
 </div>
@@ -86,7 +86,7 @@
 			<h5 style="margin-bottom:0px;text-align:right">From:</h5>
 		</div>
 		<div class="column one-fourth column_column">
-			<select name=month_from>
+			<select ng-model="pageInfo.month_from"  name=month_from>
 						<option value=1 >Jan
 						<option value=2 >Feb
 						<option value=3 >Mar
@@ -102,7 +102,7 @@
 						</select>
 		</div>
 		<div class="column one-fourth column_column">
-			<select name=day_from>
+			<select ng-model="pageInfo.day_from" name=day_from>
 						<option value=1 >1
 						<option value=2 >2
 						<option value=3 >3
@@ -137,16 +137,15 @@
 						</select>
 		</div>
 		<div class="column one-fourth column_column">
-			<select name=year_from>
-						<option value=2018 >2018
-						<option value=2019 selected>2019
-						</select>
+			<select ng-model="pageInfo.year_from" name=year_from>
+				<option ng-repeat="yr in years" value="{{yr}}">{{yr}}</option>
+			</select>
 		</div>
 		<div class="column one-fourth column_column">
 			<h5 style="margin-bottom:0px;text-align:right">To:</h5>
 		</div>
 			<div class="column one-fourth column_column">
-				<select name=month_to style="display:inline">
+				<select ng-model="pageInfo.month_to" name=month_to style="display:inline">
 								<option value=1 >Jan
 								<option value=2 >Feb
 								<option value=3 >Mar
@@ -162,7 +161,7 @@
 								</select> 
 		</div>
 		<div class="column one-fourth column_column">
-				<select name=day_to style="display:inline">
+				<select ng-model="pageInfo.day_to" name=day_to style="display:inline">
 								<option value=1 >1
 								<option value=2 >2
 								<option value=3 >3
@@ -197,15 +196,14 @@
 								</select>
 		</div>
 		<div class="column one-fourth column_column">
-				<select name=year_to style="display:inline">
-								<option value=2018 >2018
-								<option value=2019 selected>2019
-								</select>
+			<select ng-model="pageInfo.year_to" name=year_to style="display:inline">
+				<option ng-repeat="yr in years" value="{{yr}}">{{yr}}</option>
+			</select>
 		</div>
 		<div class="column three-fourth column_column">&nbsp;</div>
 		<div class="column one-fourth column_column">
 			<div class="column_attr align_right">
-				<input type=submit value="Find" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff;display:inline">
+				<input ng-click="get_transaction()" type=submit value="Find" class="button button_right button_size_1 button_js" style="background-color:#53a5f8 !important; color:#fff;display:inline">
 			</div>
 		</div>
 </form>
@@ -223,14 +221,20 @@
 	</tr>
 	</thead>
 	<tbody>
-	<tr>
+	<tr ng-if="transactions.length == 0">
 		<td colspan=3 align=center>No transactions found</td>
+	</tr>
+	<tr ng-repeat="tr in transactions">
+		<td align=center>{{tr.type}}</td>
+		<td align=center>{{tr.amount}}</td>
+		<td align=center>{{tr.transaction_date}}</td>
 	</tr>
 	</tbody>
 </table>
 		</div>
 	</div>
-</div><div class="column one mobile_dep column_column" >
+</div>
+<div class="column one mobile_dep ng-hide column_column" >
 	<div class="column_attr align_center">
 		<ul class="pagination"><li class="page-item"><a class="prev page-link disabled">&lt;&lt;</a></li><li class="page-item active"><a class="page-link">1</a></li><li class="page-item"><a class="next page-link disabled">&gt;&gt;</a></li></ul>
 	</div>

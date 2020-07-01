@@ -10,7 +10,7 @@ function bs_login(){
 	$creds['remember'] = true;
 	$current_user = wp_signon( $creds, false );
 	
-	if(!is_wp_error($current_user) && $current_user->data->company_id && $current_user->data->user_status == 0) {
+	if(!is_wp_error($current_user) && $current_user->data->user_status == 0) {
 	    $current_userr = (array)$current_user->data;
 	    $current_userr['session_id'] = logSessionUser($current_userr['ID']);
 
@@ -122,6 +122,176 @@ function bs_plans(){
 	global $wpdb;
 
 	$data = $wpdb->get_results('select * from wp_plans');
+
+	echo json_encode(array('status' => 'Success', 'data' => $data));
+	die(0);
+}
+
+function bs_deposit_list(){
+	global $wpdb;
+	$_POST = (array) json_decode(file_get_contents('php://input'));
+	$user_id= $_GET['user_id'];
+
+	$data = $wpdb->get_results('select * from wp_user_request where type="deposit" and user_id='.$user_id);
+
+	echo json_encode(array('status' => 'Success', 'data' => $data));
+	die(0);
+}
+function bs_withdraw_list(){
+	global $wpdb;
+	$_POST = (array) json_decode(file_get_contents('php://input'));
+	$user_id= $_POST['user_id'];
+	$data = $wpdb->get_results('select * from wp_user_request where type="withdraw" and user_id='.$user_id);
+
+	echo json_encode(array('status' => 'Success', 'data' => $data));
+	die(0);
+}
+
+function bs_transaction_list(){
+	global $wpdb;
+	$_POST = (array) json_decode(file_get_contents('php://input'));
+	$user_id= $_POST['user_id'];
+
+	$data = $wpdb->get_results("select * from wp_transactions where user_id=$user_id");
+
+	echo json_encode(array('status' => 'Success', 'data' => $data));
+	die(0);
+}
+
+
+function bs_deposit_request(){
+	global $wpdb;
+	$_POST = (array) json_decode(file_get_contents('php://input'));
+
+	$wpdb->insert('wp_user_request', 
+		array(
+			'user_id' => $_POST['user_id'],
+			'amount' => $_POST['amount'],
+			'plan_id' => $_POST['plan_id'],
+			'reference_id' => $_POST['reference_id'],
+			'notes' => $_POST['notes'],
+			'request_date' => date('Y-m-d H:i:s'),
+			'type'=> 'deposit'
+		)
+	);
+
+	//echo $wpdb->last_query;
+
+	echo json_encode(array('status' => 'Success'));
+	die(0);
+}
+
+function bs_withdraw_request(){
+	global $wpdb;
+	$_POST = (array) json_decode(file_get_contents('php://input'));
+
+	$wpdb->insert('wp_user_request', 
+		array(
+			'user_id' => $_POST['user_id'],
+			'amount' => $_POST['amount'],
+			'notes' => $_POST['notes'],
+			'request_date' => date('Y-m-d H:i:s'),
+			'type'=> 'withdraw'
+		)
+	);
+
+	//echo $wpdb->last_query;
+
+	echo json_encode(array('status' => 'Success'));
+	die(0);
+}
+
+function bs_cron(){
+	global $wpdb;
+
+	$results = $wpdb->get_results('select * from wp_subscription where status = 0');
+	foreach ($results as $key => $value) {
+		$plan = $wpdb->get_row('select * from wp_plans where id = '.$value->plan_id);
+		$noti = $wpdb->get_results('select * from wp_subscription_notification where noti_date = "'.date('Y-m-d').'" and subscription_id = '.$value->id);
+
+		if(count($noti) == 0){
+			$now = strtotime(date('Y-m-d')); 
+			$your_date = strtotime(explode(" ", $value->subscription_date)[0]);
+			$datediff = ($now - $your_date) / (60 * 60 * 24);
+			if($datediff){
+				if($plan->type == 'daily' || $plan->no_of_days == $datediff) {
+					$amount = $value->amount * ($plan->return_percentage/100);
+					$amount = number_format((float)$amount, 2, '.', '');
+
+					$wpdb->insert('wp_subscription_notification', 
+						array(
+							'subscription_id' => $value->id,
+							'plan_id' => $value->plan_id,
+							'user_id' => $value->user_id,
+							'amount' => $amount,
+							'noti_date' => date('Y-m-d')
+						)
+					);
+					if($plan->no_of_days == $datediff){
+						$wpdb->update('wp_subscription', array('status' => 1), array('id' => $value->id));
+					}
+				}
+			}
+		}
+	}
+	echo json_encode(array('status' => 'Success'));
+	die(0);
+}
+
+function bs_user_balance(){
+	global $wpdb;
+	$_POST = (array) json_decode(file_get_contents('php://input'));
+	$data = array();
+	$balance = get_user_meta($_POST['user_id'], 'wallet_balance', true);
+    $balance = $balance ? $balance : 0;
+
+    $data['deposit'] = $wpdb->get_row('select sum(amount) as sum from wp_user_request where status = 1 and type = "deposit" and user_id = '.$_POST['user_id'])->sum;
+    $data['pending_deposit'] = $wpdb->get_row('select sum(amount) as sum from wp_user_request where status = 0 and type = "deposit" and user_id = '.$_POST['user_id'])->sum;
+
+    $data['withdraw'] = $wpdb->get_row('select sum(amount) as sum from wp_user_request where status = 1 and type = "withdraw" and user_id = '.$_POST['user_id'])->sum;
+    $data['pending_withdraw'] = $wpdb->get_row('select sum(amount) as sum from wp_user_request where status = 0 and type = "withdraw" and user_id = '.$_POST['user_id'])->sum;
+    $data['balance'] = $balance;
+
+	echo json_encode(array('status' => 'Success', 'data' => $data));
+	die(0);
+}
+
+function bs_home_data(){
+	global $wpdb;
+	$res = $wpdb->get_results('select user_id, sum(amount) as amt from wp_transactions where type = "deposit" group by user_id order by amt desc limit 0, 10');
+	$data = array('investors' => array(), 'deposits' => array(), 'withdraw' => array());
+	foreach ($res as $key => $value) {
+		$user = $wpdb->get_row('select * from wp_users where ID='.$value->user_id);
+		$name = get_user_meta($value->user_id, 'name', true);
+
+		$data['investors'][] = array('name' => $name, 'registered' => $user->user_registered, 'amt' => $value->amt);
+	}
+
+	$res = $wpdb->get_results('select * from wp_transactions where type = "deposit" order by id desc limit 0, 10');
+	foreach ($res as $key => $value) {
+		$name = get_user_meta($value->user_id, 'name', true);
+		$value = (array) $value;
+		$value['name'] = $name;
+		$data['deposits'][] = $value;
+	}
+
+	$res = $wpdb->get_results('select * from wp_transactions where type = "withdraw" order by id desc limit 0, 10');
+	foreach ($res as $key => $value) {
+		$user = $wpdb->get_row('select * from wp_users where ID='.$value->user_id);
+		$name = get_user_meta($value->user_id, 'name', true);
+		$value = (array) $value;
+		$value['name'] = $name;
+		$data['withdraw'][] = $value;
+	}
+
+	$res = $wpdb->get_row('select count(*) as cnt from wp_users');
+	$data['users'] = $res->cnt ? $res->cnt : 0;
+
+	$res = $wpdb->get_row('select sum(amount) as amt from wp_transactions where type = "deposit"');
+	$data['total_deposit'] = $res->amt ? $res->amt : 0;
+
+	$res = $wpdb->get_row('select sum(amount) as amt from wp_transactions where type = "withdraw"');
+	$data['total_withdraw'] = $res->amt ? $res->amt : 0;
 
 	echo json_encode(array('status' => 'Success', 'data' => $data));
 	die(0);
